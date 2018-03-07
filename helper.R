@@ -1,6 +1,6 @@
 
 
-print_bib_rmd <- function(bib, .opts = list(), start = 1, stop = NULL) {
+print_bib_rmd <- function(bib, .opts = list(), start = 1, stop = NULL, decreasing = FALSE) {
 
     bib <- sort(bib, decreasing = FALSE)
 
