@@ -73,3 +73,21 @@ print_bib_rmd(bib, start = 1, stop = 6)
 print_bib_rmd(bib, start = 7, stop = 10)
 ```
 
+---
+
+# How it works
+
+The previous two slides were created using the `print_bib_rmd` function. 
+
+
+<pre><code>```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 1, stop = 6)
+```</code></pre>
+
+
+and 
+
+<pre><code>```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 7, stop = 10)
+```</code></pre>
+
