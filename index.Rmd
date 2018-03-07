@@ -1,0 +1,75 @@
+---
+title: "Presentation Ninja"
+subtitle: "References with xaringan"
+author: "Joseph Casillas"
+date: "Last update: `r Sys.Date()`"
+output: xaringan::moon_reader
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Bib setup
+
+```{r}
+source(here::here("helper.R"))
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           style = "markdown",
+           dashed = TRUE)
+file.name <- system.file("Bib", 
+                         "biblatexExamples.bib", 
+                         package = "RefManageR")
+bib <- ReadBib(file.name)
+```
+---
+
+# Citaion examples
+
+1. Standard citation, single author:  
+`r AutoCite(bib, "wilde")`
+
+2. Multiple citations `r AutoCite(bib, "bertram")` on a single line `r AutoCite(bib, "kastenholz")`.
+
+3. Inline citation:  
+`r Citet(bib, "iliad")` said this and this. 
+
+4. More than two authors:  
+`r AutoCite(bib, "vazques-de-parga")`
+
+5. More than two authors inline:  
+`r Citet(bib, "springer")` talk about things. 
+`r Citet(bib, "massa")` has great ideas.
+
+```{r}
+# 6. 'NoCite' function to include references in bib that 
+#    don't appear in text
+NoCite(bib, c("knuth:ct:a", "aristotle:poetics", "herrmann"))
+```
+
+---
+
+# References (all on one page)
+
+```{r, results='asis', echo=FALSE, warning=FALSE}
+PrintBibliography(bib)
+```
+
+---
+
+# References (split up)
+
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 1, stop = 6)
+```
+
+---
+
+# References II (split up)
+
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 7, stop = 10)
+```
+
